@@ -39,9 +39,9 @@ const BlogList = () => {
           Technology
         </button>
         <button
-          onClick={() => setMenu("Startup")}
+          onClick={() => setMenu("startup")}
           className={
-            menu === "Startup" ? "bg-black text-white py-1 px-4 rounded-sm" : ""
+            menu === "startup" ? "bg-black text-white py-1 px-4 rounded-sm" : ""
           }
         >
           Startup
