@@ -15,3 +15,9 @@ export async function POST(request){
     await EmailModel.create(emailData);
     return NextResponse.json({success:true,msg:"Email Subscribed"})
 }
+
+
+export async function GET(request){
+    const emails = await EmailModel.find({});
+    return NextResponse.json({emails});
+}
