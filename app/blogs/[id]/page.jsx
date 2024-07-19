@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { assets, blog_data } from "@/Assets/assets";
 import Footer from "@/components/Footer";
@@ -11,12 +11,12 @@ const page = ({ params }) => {
   const [data, setData] = useState(null);
 
   const fetchBlogData = async () => {
-    const response = await axios.get('/api/blog',{
-      params:{
-        id:params.id
-      }
-    })
-    setData(response.data)
+    const response = await axios.get("/api/blog", {
+      params: {
+        id: params.id,
+      },
+    });
+    setData(response.data);
   };
 
   useEffect(() => {
@@ -26,13 +26,13 @@ const page = ({ params }) => {
     <>
       <div className="bg-gray-200 py-5 px-5 md:px-12 lg:px-28">
         <div className="flex justify-between items-center">
-            <Link href='/'>
-          <Image
-            src={assets.logo}
-            width={180}
-            alt=""
-            className="w-[130px] sm:w-auto"
-          />
+          <Link href="/">
+            <Image
+              src={assets.logo}
+              width={180}
+              alt=""
+              className="w-[130px] sm:w-auto"
+            />
           </Link>
           <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-black shadow-[-7px_7px_0px_#000000]">
             Get started
@@ -63,80 +63,21 @@ const page = ({ params }) => {
           height={720}
           alt=""
         />
-        <h1 className="my-8 text-[26px] font-semibold">Introduction:</h1>
-        <p>{data.description}</p>
-        <h3 className="my-5 text-[18px] font-semibold">
-          Step 1: self-Reflection and Goal Setting
-        </h3>
-        <p className="my-3">
-          Before your can manage your lifestyle you must a clear that you want
-          to achieve. start by reflecting Lorem, ipsum dolor sit amet
-          consectetur adipisicing elit. Nisi accusantium quas odio, soluta nulla
-          deleniti dignissimos? Incidunt ipsa atque dolorem tenetur eos tempore
-          placeat iure ab excepturi! Expedita, ipsam quo.
-        </p>
-        <p className="my-3">
-          Before your can manage your lifestyle you must a clear that you want
-          to achieve. start by reflecting Lorem, ipsum dolor sit amet
-          consectetur adipisicing elit. Nisi accusantium quas odio, soluta nulla
-          deleniti dignissimos? Incidunt ipsa atque dolorem tenetur eos tempore
-          placeat iure ab excepturi! Expedita, ipsam quo.
-        </p>
-        <h3 className="my-5 text-[18px] font-semibold">
-          Step 2: self-Reflection and Goal Setting
-        </h3>
-        <p className="my-3">
-          Before your can manage your lifestyle you must a clear that you want
-          to achieve. start by reflecting Lorem, ipsum dolor sit amet
-          consectetur adipisicing elit. Nisi accusantium quas odio, soluta nulla
-          deleniti dignissimos? Incidunt ipsa atque dolorem tenetur eos tempore
-          placeat iure ab excepturi! Expedita, ipsam quo.
-        </p>
-        <p className="my-3">
-          Before your can manage your lifestyle you must a clear that you want
-          to achieve. start by reflecting Lorem, ipsum dolor sit amet
-          consectetur adipisicing elit. Nisi accusantium quas odio, soluta nulla
-          deleniti dignissimos? Incidunt ipsa atque dolorem tenetur eos tempore
-          placeat iure ab excepturi! Expedita, ipsam quo.
-        </p>
-        <h3 className="my-5 text-[18px] font-semibold">
-          Step 3: self-Reflection and Goal Setting
-        </h3>
-        <p className="my-3">
-          Before your can manage your lifestyle you must a clear that you want
-          to achieve. start by reflecting Lorem, ipsum dolor sit amet
-          consectetur adipisicing elit. Nisi accusantium quas odio, soluta nulla
-          deleniti dignissimos? Incidunt ipsa atque dolorem tenetur eos tempore
-          placeat iure ab excepturi! Expedita, ipsam quo.
-        </p>
-        <p className="my-3">
-          Before your can manage your lifestyle you must a clear that you want
-          to achieve. start by reflecting Lorem, ipsum dolor sit amet
-          consectetur adipisicing elit. Nisi accusantium quas odio, soluta nulla
-          deleniti dignissimos? Incidunt ipsa atque dolorem tenetur eos tempore
-          placeat iure ab excepturi! Expedita, ipsam quo.
-        </p>
-        <h3 className="my-5 text-[18px] font-semibold">
-         Conclusion:
-        </h3>
-        <p className="my-3">
-          Before your can manage your lifestyle you must a clear that you want
-          to achieve. start by reflecting Lorem, ipsum dolor sit amet
-          consectetur adipisicing elit. Nisi accusantium quas odio, soluta nulla
-          deleniti dignissimos? Incidunt ipsa atque dolorem tenetur eos tempore
-          placeat iure ab excepturi! Expedita, ipsam quo.
-        </p>
-        <div className="my-24">
-            <p className="text-black font-semibold my-4">Share this article on social media</p>
-            <div className="flex">
-                <Image src={assets.facebook_icon} width={50} alt=""/>
-                <Image src={assets.twitter_icon} width={50} alt=""/>
-                <Image src={assets.googleplus_icon} width={50} alt=""/>
+        
+        <div className="blog-content" dangerouslySetInnerHTML={{__html:data.description}}></div>
 
-            </div>
+        <div className="my-24">
+          <p className="text-black font-semibold my-4">
+            Share this article on social media
+          </p>
+          <div className="flex">
+            <Image src={assets.facebook_icon} width={50} alt="" />
+            <Image src={assets.twitter_icon} width={50} alt="" />
+            <Image src={assets.googleplus_icon} width={50} alt="" />
+          </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   ) : (
     <></>
